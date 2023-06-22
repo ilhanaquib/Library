@@ -13,7 +13,11 @@ class CollectionController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Collection/Index');
+        $collections = Collection::all();
+
+        return Inertia::render('Collection/Index', [
+            'collections' => $collections
+        ]);
     }
 
     /**
@@ -37,7 +41,7 @@ class CollectionController extends Controller
      */
     public function show(Collection $collection)
     {
-        //
+        return Inertia::render('Collection/Show');
     }
 
     /**

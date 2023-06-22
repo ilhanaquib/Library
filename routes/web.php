@@ -24,12 +24,13 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
     Route::get('/books', [BookController::class, 'index'])->name('books');
 
     Route::get('/borrow', [BorrowBookController::class, 'create'])->name('borrow');
     Route::post('/borrow/book', [BorrowBookController::class, 'store'])->name('borrow_book');
 
     Route::get('/collection', [CollectionController::class, 'index'])->name('collection');
-
+    Route::get('/collection/{id}', [CollectionController::class, 'show']);
 });
 

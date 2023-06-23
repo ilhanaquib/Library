@@ -13,7 +13,7 @@ class CollectionController extends Controller
      */
     public function index()
     {
-        $collections = Collection::all();
+        $collections = Collection::all  ();
 
         return Inertia::render('Collection/Index', [
             'collections' => $collections
@@ -39,9 +39,10 @@ class CollectionController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Collection $collection)
+    public function show($id)
     {
-        return Inertia::render('Collection/Show');
+        $collection = Collection::findOrFail($id);
+        return Inertia::render('Collection/Show', compact('collection'));
     }
 
     /**
